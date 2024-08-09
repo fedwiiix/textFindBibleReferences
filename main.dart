@@ -1,3 +1,15 @@
+void main() {
+  final input =
+      "Matthieu 6, 33 puis ben sira le sage 2 Genèse et jean à 4 de exode 2 mais ça fonctionne avec L'ecclesiaste 4 ou l'ecclesiastique 8 et le Psaume 9a";
+
+  // find all references inside text
+  final findBibleRefUseCase = new FindBibleRefUseCase();
+  print(findBibleRefUseCase.exec(input));
+
+  // run tests
+  // test();
+}
+
 class FindBibleRefUseCase {
   final bibleLinks = {
     "genese": "gn",
@@ -147,74 +159,64 @@ class FindBibleRefUseCase {
       final updatedText = '<a href="$url">$matchedText</a>';
       input = input.replaceAll(matchedText, updatedText);
 
-      print('aelf: $matchedText -> $book $chapter -> $updatedText');
+      //print('aelf: $matchedText -> $book $chapter -> $updatedText');
     }
     return input;
   }
 }
 
-void main() {
-  final input =
-      "Matthieu 6, 33 puis ben sira le sage 2 Genèse et jean à 4 de exode 2 mais ça fonctionne avec L'ecclesiaste 4 ou l'ecclesiastique 8 et le Psaume 9a";
-
-  final findBibleRefUseCase = new FindBibleRefUseCase();
-   print(findBibleRefUseCase.exec(input));
-
- // test();
-}
-
 void test() {
   final testDatas = {
-  "Jn 16, 23": "https://www.aelf.org/bible/jn/16",
-  "Ps 23, 6": "https://www.aelf.org/bible/ps/23",
-  "1 Thessaloniciens 5, 18": "https://www.aelf.org/bible/1th/5",
-  "Psaume 100, 3-4": "https://www.aelf.org/bible/ps/100",
-  "Galates 5,13": "https://www.aelf.org/bible/ga/5",
-  "Matthieu 6, 33": "https://www.aelf.org/bible/mt/6",
-  "Psaume 36": "https://www.aelf.org/bible/ps/36",
-  "Mt 8,34-35": "https://www.aelf.org/bible/mt/8",
-  "Mt 5,14-16": "https://www.aelf.org/bible/mt/5",
-  "Ez 3,10-11": "https://www.aelf.org/bible/ez/3",
-  "Jean 16,7-11": "https://www.aelf.org/bible/jn/16",
-  "Jn 3,1-3": "https://www.aelf.org/bible/jn/3",
-  "1Th 5,16": "https://www.aelf.org/bible/1th/5",
-  "Sophonie 3,9": "https://www.aelf.org/bible/so/3",
-  "Actes 17,26-28": "https://www.aelf.org/bible/ac/17",
-  "Mt 8,16-17": "https://www.aelf.org/bible/mt/8",
-  "Ps 42": "https://www.aelf.org/bible/ps/42",
-  "Ez 27,41-42": "https://www.aelf.org/bible/ez/27",
-  "Luc 10": "https://www.aelf.org/bible/lc/10",
-  "Mt 28, 19": "https://www.aelf.org/bible/mt/28",
-  "Mc 5,36": "https://www.aelf.org/bible/mc/5",
-  "Néhémie 8, 1-4": "https://www.aelf.org/bible/ne/8",
-  "ep 4": "https://www.aelf.org/bible/ep/4",
-  "Actes 15, 11": "https://www.aelf.org/bible/ac/15",
-  "Si 17:24": "https://www.aelf.org/bible/si/17",
-  "Ps 9:2": "https://www.aelf.org/bible/ps/9",
-  "Dt 2, 7": "https://www.aelf.org/bible/dt/2",
-  "2Co 13, 11-13": "https://www.aelf.org/bible/2co/13",
-  "Ph 2, 1-5": "https://www.aelf.org/bible/ph/2",
-  "Psaume 24, 4-5": "https://www.aelf.org/bible/ps/24",
-  "1 Pierre 1, 15-16": "https://www.aelf.org/bible/1p/1",
-  "1 jean 4,18": "https://www.aelf.org/bible/1jn/4",
-  "Mc 2": "https://www.aelf.org/bible/mc/2",
-  "Romains 12, 21": "https://www.aelf.org/bible/rm/12",
-  "Is 30, 45": "https://www.aelf.org/bible/is/30",
-  "ne 3": "https://www.aelf.org/bible/ne/3",
-  "1 Tm 4, 12-16": "https://www.aelf.org/bible/1tm/4",
-  "Luc 18, 15-17": "https://www.aelf.org/bible/lc/18",
-  "psaume 39": "https://www.aelf.org/bible/ps/39",
-  "1 Co 15:58": "https://www.aelf.org/bible/1co/15",
-  "1 co 3": "https://www.aelf.org/bible/1co/3",
-  "LV 19": "https://www.aelf.org/bible/lv/19",
-  "Actes 4, 1-4": "https://www.aelf.org/bible/ac/4",
-  "Mc 11, 22-24": "https://www.aelf.org/bible/mc/11",
-  "2 Corinthiens 9, 7": "https://www.aelf.org/bible/2co/9",
-  "Jacques 1, 2-4": "https://www.aelf.org/bible/jc/1",
-  "Luc 15, 7": "https://www.aelf.org/bible/lc/15",
-  "Psaume 25": "https://www.aelf.org/bible/ps/25",
-  "Psaume 62": "https://www.aelf.org/bible/ps/62",
-  "Marc 10, 14": "https://www.aelf.org/bible/mc/10",
+    "Jn 16, 23": "https://www.aelf.org/bible/jn/16",
+    "Ps 23, 6": "https://www.aelf.org/bible/ps/23",
+    "1 Thessaloniciens 5, 18": "https://www.aelf.org/bible/1th/5",
+    "Psaume 100, 3-4": "https://www.aelf.org/bible/ps/100",
+    "Galates 5,13": "https://www.aelf.org/bible/ga/5",
+    "Matthieu 6, 33": "https://www.aelf.org/bible/mt/6",
+    "Psaume 36": "https://www.aelf.org/bible/ps/36",
+    "Mt 8,34-35": "https://www.aelf.org/bible/mt/8",
+    "Mt 5,14-16": "https://www.aelf.org/bible/mt/5",
+    "Ez 3,10-11": "https://www.aelf.org/bible/ez/3",
+    "Jean 16,7-11": "https://www.aelf.org/bible/jn/16",
+    "Jn 3,1-3": "https://www.aelf.org/bible/jn/3",
+    "1Th 5,16": "https://www.aelf.org/bible/1th/5",
+    "Sophonie 3,9": "https://www.aelf.org/bible/so/3",
+    "Actes 17,26-28": "https://www.aelf.org/bible/ac/17",
+    "Mt 8,16-17": "https://www.aelf.org/bible/mt/8",
+    "Ps 42": "https://www.aelf.org/bible/ps/42",
+    "Ez 27,41-42": "https://www.aelf.org/bible/ez/27",
+    "Luc 10": "https://www.aelf.org/bible/lc/10",
+    "Mt 28, 19": "https://www.aelf.org/bible/mt/28",
+    "Mc 5,36": "https://www.aelf.org/bible/mc/5",
+    "Néhémie 8, 1-4": "https://www.aelf.org/bible/ne/8",
+    "ep 4": "https://www.aelf.org/bible/ep/4",
+    "Actes 15, 11": "https://www.aelf.org/bible/ac/15",
+    "Si 17:24": "https://www.aelf.org/bible/si/17",
+    "Ps 9:2": "https://www.aelf.org/bible/ps/9",
+    "Dt 2, 7": "https://www.aelf.org/bible/dt/2",
+    "2Co 13, 11-13": "https://www.aelf.org/bible/2co/13",
+    "Ph 2, 1-5": "https://www.aelf.org/bible/ph/2",
+    "Psaume 24, 4-5": "https://www.aelf.org/bible/ps/24",
+    "1 Pierre 1, 15-16": "https://www.aelf.org/bible/1p/1",
+    "1 jean 4,18": "https://www.aelf.org/bible/1jn/4",
+    "Mc 2": "https://www.aelf.org/bible/mc/2",
+    "Romains 12, 21": "https://www.aelf.org/bible/rm/12",
+    "Is 30, 45": "https://www.aelf.org/bible/is/30",
+    "ne 3": "https://www.aelf.org/bible/ne/3",
+    "1 Tm 4, 12-16": "https://www.aelf.org/bible/1tm/4",
+    "Luc 18, 15-17": "https://www.aelf.org/bible/lc/18",
+    "psaume 39": "https://www.aelf.org/bible/ps/39",
+    "1 Co 15:58": "https://www.aelf.org/bible/1co/15",
+    "1 co 3": "https://www.aelf.org/bible/1co/3",
+    "LV 19": "https://www.aelf.org/bible/lv/19",
+    "Actes 4, 1-4": "https://www.aelf.org/bible/ac/4",
+    "Mc 11, 22-24": "https://www.aelf.org/bible/mc/11",
+    "2 Corinthiens 9, 7": "https://www.aelf.org/bible/2co/9",
+    "Jacques 1, 2-4": "https://www.aelf.org/bible/jc/1",
+    "Luc 15, 7": "https://www.aelf.org/bible/lc/15",
+    "Psaume 25": "https://www.aelf.org/bible/ps/25",
+    "Psaume 62": "https://www.aelf.org/bible/ps/62",
+    "Marc 10, 14": "https://www.aelf.org/bible/mc/10",
     "Jn 6:27": "https://www.aelf.org/bible/jn/6",
     "Jean 6, 68": "https://www.aelf.org/bible/jn/6",
     "Mt 8, 18-20": "https://www.aelf.org/bible/mt/8",
