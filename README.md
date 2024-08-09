@@ -1,4 +1,4 @@
-# Bible Reference Finder
+# Bible Reference Finder (french)
 
 This Flutter/Dart use case allows you to search for Bible references in HTML text and add link tags.
 
