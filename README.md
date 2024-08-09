@@ -10,4 +10,4 @@ This Flutter/Dart use case allows you to search for Bible references in HTML tex
 
 ## Demo
 
-Select all main file content and paste them into [DartPad](https://dartpad.dev/). Run the code and enjoy! 😎
+Select all the content from the main file and paste it into [DartPad](https://dartpad.dev/). Run the code and enjoy! 😎
